@@ -5,3 +5,9 @@ Verification = identifies data comes on server is correct or not.
 Authentication = identifies request comes from which user
 
 Authorization = set of permisssions given to any user [what he can do & what not]
+
+
+
+Types of Authentication 
+1. Token Based 
+2. Session Based 

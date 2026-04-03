@@ -1,0 +1,7 @@
+Validation 
+
+Verification 
+
+Authentication = identifies request comes from which user
+
+Authorization = set of permisssions given to any user [what he can do & what not]

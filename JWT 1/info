@@ -1,6 +1,6 @@
-Validation 
+Validation = identifies data is in correct format or not
 
-Verification 
+Verification = identifies data comes on server is correct or not.
 
 Authentication = identifies request comes from which user
 

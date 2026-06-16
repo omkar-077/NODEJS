@@ -1,13 +1,62 @@
-Validation = identifies data is in correct format or not
+# Validation 
+    identifies data is in correct format or not
+    EX - Mo No. - 9890615800
+        Email - 222222 (incorrect) correct- omkar@gmail.com  [this is validation - checks format] 
+        Password - 1234
 
-Verification = identifies data comes on server is correct or not.
+# Verification 
+    identifies data comes on server is correct or not. [varifies all above data is correct or not, Ex check using Email OTP]
 
-Authentication = identifies request comes from which user
+# Authentication 
+    identifies request comes from which user
 
-Authorization = set of permisssions given to any user [what he can do & what not]
+# Authorization 
+    set of permisssions given to any user [what he can do & what not]
+    Ex - Admin can access all.
+         Student can access only his dashboard.
 
 
-
-Types of Authentication 
+### Types of Authentication 
 1. Token Based 
 2. Session Based 
+
+1. Token Based Authentication
+
+Instead of asking the user to enter username and password on every request, the server gives the user a token after login.
+A token is a unique encrypted string that acts like a temporary digital ID card.
+Example token:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+The most common token format is JWT (JSON Web Token).
+
+# Real-Life Example
+Think of a movie theater.
+
+Step 1: Buy Ticket
+You show your ID and buy a ticket.
+ID Verification = Login
+
+Step 2: Receive Ticket
+The theater gives you a ticket.
+Ticket = Token
+
+Step 3: Enter Different Areas
+Whenever staff asks, you show the ticket.
+Show Token instead of Login Again
+No need to verify your ID every time.
+
+# Authentication Flow - 
+
+User Login -> Server Verifies Credentials -> Server Creates JWT Token -> User Receives Token -> User Sends Token with Every Request -> Server Verifies Token -> Access Granted
+
+# Summary
+Token-based authentication is a method where, after successful login, the server generates a token (usually JWT) and sends it to the client. The client includes this token in every request, and the server verifies it before granting access to protected resources. This avoids storing session data on the server and is widely used in modern Node.js APIs.
+
+# Difference 
+
+| Session Authentication         | Token Authentication          |
+| ------------------------------ | ----------------------------- |
+| Server stores session          | Server does not store session |
+| Uses Cookies                   | Uses JWT Token                |
+| Less scalable                  | Highly scalable               |
+| Common in traditional websites | Common in REST APIs           |
+| Session ID stored on server    | Token stored on client        |

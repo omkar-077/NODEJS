@@ -15,7 +15,9 @@ async function authArtist(req, res, next) {
             })
         }
 
-        next();
+        req.user = decoded;
+
+        next()
 
     } catch (err) {
         console.log(err);

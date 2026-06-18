@@ -103,4 +103,31 @@ async function createAlbum(req,res){
     // }
 
 }
-module.exports = { createMusic, createAlbum };
+
+async function getAllMusic(req,res){
+    const musics = await musicModel.find().limit(20).populate("artist")
+    res.status(200).json({
+        message: "Musics Fetched Successfully",
+        musics: musics
+    })
+} 
+
+async function getAllAlbum(req,res){
+    const albums = await albumModel.find().populate("artist")
+    res.status(200).json({
+        message: "Albums Fetched Successfully",
+        albums : albums
+    })
+} 
+
+async function getAlbumbyId(req,res){
+    const albumId = req.params.albumId;
+
+    const album = await albumModel.findById(albumId).populate("artist")
+    res.status(200).json({
+        message: "Album Fetched Successfully",
+        album : album
+    })
+} 
+
+module.exports = { createMusic, createAlbum, getAllMusic , getAllAlbum , getAlbumbyId};

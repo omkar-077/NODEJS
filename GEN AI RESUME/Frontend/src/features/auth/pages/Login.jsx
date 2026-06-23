@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate,  Link} from 'react-router'
 import "../auth.form.scss"
-import { useAuth } from '../hooks/useauth';
+import { useAuth } from '../hooks/useAuth';
  
 
 const Login = () => {
@@ -15,7 +15,8 @@ const Login = () => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        handleLogin({email,password})
+        await handleLogin({email,password})
+        navigate('/')
     }
 
     if(loading){
@@ -29,13 +30,13 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <div className="input-group">
                     <label htmlFor="email">Email</label>
-                    <input onChange={(e)=>{setEmail(e.target.value)}} type="email" name="email" id="" placeholder='Enter an Email' />
+                    <input onChange={(e)=>{setEmail(e.target.value)}} type="email" name="email" id="email" placeholder='Enter an Email' />
                 </div>
                 <div className="input-group">
                     <label htmlFor="password">Password</label>
-                    <input onChange={(e)=>{setPassword(e.target.value)}} type="password" name="password" id="" placeholder='Enter valid Password' />
+                    <input onChange={(e)=>{setPassword(e.target.value)}} type="password" name="password" id="password" placeholder='Enter valid Password' />
                 </div>
-                <div className="button primary-button">Login</div>
+                <button className="button primary-button">Login</button>
             </form>
             <p>Dont have an account? <Link to={"/register"}>Register</Link></p>
         </div>

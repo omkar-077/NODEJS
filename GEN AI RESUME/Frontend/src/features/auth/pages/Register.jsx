@@ -25,7 +25,7 @@ const Register = () => {
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" id="password" placeholder='Enter valid Password' />
                     </div>
-                    <div className="button primary-button">Register</div>
+                    <button className="button primary-button">Register</button>
                 </form>
 
                 <p>Already have an account? <Link to={"/login"}>Login</Link></p>

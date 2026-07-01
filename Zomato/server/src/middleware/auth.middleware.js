@@ -53,8 +53,8 @@ async function authUserMiddleware(req,res,next){
         next()
 
     } catch (err) {
-        console.log(err)
-        console.error(err)
+        // console.log(err)
+        // console.error(err)
 
         return res.status(401).json({
             message: "Invalid token"

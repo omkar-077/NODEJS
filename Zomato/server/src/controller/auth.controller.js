@@ -93,7 +93,7 @@ async function logoutUser(req,res){
 // Food partner
 
 async function registerFoodPartner(req,res){
-    const { name, email, password } = req.body;
+    const { name, email, password, phone, contactName, address } = req.body;
 
 // 1st check if account exist or not , if not then create account , then create token and set in cookie
 
@@ -110,7 +110,10 @@ async function registerFoodPartner(req,res){
     const foodPartner = await foodPartnerModel.create({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        phone,
+        address,
+        contactName
     })
 
     const token = jwt.sign({
